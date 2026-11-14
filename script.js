@@ -32,7 +32,24 @@ function extraireFontaines(reponse) {
 //    et son motif entre parenthèses
 // 4. Le compteur affiche « 8 fontaines »
 function afficherFontaines(liste) {
-
+    const ul = document.getElementById("liste");
+    ul.innerHTML ="";
+    liste.forEach((fontaine) => {
+        const li =document.createElement("li");
+        let texte = `${fontaine.voie}, ${fontaine.commune}`;
+        if(fontaine.dispo !== "OUI") {
+            li.classList.add("hors-service");
+            texte = texte + ` ${fontaine.motif_ind}`;
+        }
+        li.textContent = texte;
+        ul.appendChild(li)
+    });
+    const compteur = document.getElementById("compteur")
+    if (liste.length > 1) {
+        compteur.textContent = `${liste.length} fontaines`;
+    } else {
+        compteur.textContent = `${liste.length} fontaine`;
+    }
 }
 
 
