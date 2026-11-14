@@ -113,4 +113,5 @@ selectCommune.addEventListener("change", () => {
 //  pour obtenir un résultat précis, tandis qu'une fonction qui reçoit
 //  une fonction (callback) délégue une règle ou un comportement
 //  modulable qu'elle exécutera au moment opportun.
+
 // =====================================================
