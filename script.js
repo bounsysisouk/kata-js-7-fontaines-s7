@@ -99,8 +99,18 @@ selectCommune.addEventListener("change", () => {
 
 // =====================================================
 // Questions de recul (réponds en commentaire ici)
-// 1
 
-// 2.
-// 3.
+// 1.Si on écrit estEnService(), la fonction est exécutée immédiatement
+//  au moment de l'appel de filtrer ou de l'écouteur, et son résultat (un booléen)
+//  est passé en argument au lieu de la fonction elle-même, ce qui provoque
+//  une erreur car ce n'est pas une fonction appelable.
+
+// 2.Le total_count représente le nombre total d'enregistrements disponibles sur le serveur
+//  pour cette requête, mais l'API pagine les résultats et ne renvoie qu'une tranche (un lot)
+//  à la fois dans results pour ne pas surcharger la réponse
+
+// 3.Une fonction qui appelle une fonction exécute un outil prédéfini
+//  pour obtenir un résultat précis, tandis qu'une fonction qui reçoit
+//  une fonction (callback) délégue une règle ou un comportement
+//  modulable qu'elle exécutera au moment opportun.
 // =====================================================
