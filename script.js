@@ -24,7 +24,6 @@ function extraireFontaines(reponse) {
     return reponse.results
 }
 
-
 // TODO 3 — afficherFontaines(liste)
 // 1. Vide <ul id="liste">
 // 2. Un <li> par fontaine : la voie, puis la commune
@@ -33,11 +32,11 @@ function extraireFontaines(reponse) {
 // 4. Le compteur affiche « 8 fontaines »
 function afficherFontaines(liste) {
     const ul = document.getElementById("liste");
-    ul.innerHTML ="";
+    ul.innerHTML = "";
     liste.forEach((fontaine) => {
-        const li =document.createElement("li");
+        const li = document.createElement("li");
         let texte = `${fontaine.voie}, ${fontaine.commune}`;
-        if(fontaine.dispo !== "OUI") {
+        if (fontaine.dispo !== "OUI") {
             li.classList.add("hors-service");
             texte = texte + ` ${fontaine.motif_ind}`;
         }
@@ -52,8 +51,9 @@ function afficherFontaines(liste) {
     }
 }
 
-
 // TODO 4 — Au chargement, affiche toutes les fontaines.
+const fontaines = extraireFontaines(reponse);
+afficherFontaines(fontaines);
 
 
 
