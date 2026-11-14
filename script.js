@@ -37,7 +37,7 @@ function afficherFontaines(liste) {
         let texte = `${fontaine.voie}, ${fontaine.commune}`;
         if (fontaine.dispo !== "OUI") {
             li.classList.add("hors-service");
-            texte = texte + ` ${fontaine.motif_ind}`;
+            texte = texte + ` (${fontaine.motif_ind})`;
         }
         li.textContent = texte;
         ul.appendChild(li)
@@ -76,7 +76,7 @@ function filtrer(liste, test) {
 }
 const btnEnService = document.getElementById("btn-en-service");
 btnEnService.addEventListener("click", () => {
-    const fontainesEnService = filtrer(fontaines.estEnService);
+    const fontainesEnService = filtrer(fontaines, estEnService);
     afficherFontaines(fontainesEnService);
 });
 
@@ -85,12 +85,22 @@ btnEnService.addEventListener("click", () => {
 // les fontaines de cet arrondissement, avec filtrer et une fonction
 // fléchée écrite directement dans l'appel.
 // « Tous » réaffiche toutes les fontaines.
-
+const selectCommune = document.getElementById("choix-commune");
+selectCommune.addEventListener("change", () => {
+    const valeur = selectCommune.value;
+    if (valeur === "tous") {
+        afficherFontaines(fontaines);
+    } else {
+        const fontainesFiltrees = filtrer(fontaines, (fontaine) => fontaine.commune === valeur)
+        afficherFontaines(fontainesFiltrees);
+    }
+});
 
 
 // =====================================================
 // Questions de recul (réponds en commentaire ici)
-// 1.
+// 1
+
 // 2.
 // 3.
 // =====================================================
