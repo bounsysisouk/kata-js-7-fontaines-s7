@@ -21,7 +21,7 @@ console.log(reponse.results[4].motif_ind); // reponse e: Gel
 // TODO 2 — extraireFontaines(reponse)
 // Retourne le tableau des fontaines, sans l'enveloppe.
 function extraireFontaines(reponse) {
-
+    return reponse.results
 }
 
 
