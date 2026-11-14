@@ -23,7 +23,6 @@ console.log(reponse.results[4].motif_ind); // reponse e: Gel
 function extraireFontaines(reponse) {
     return reponse.results
 }
-
 // TODO 3 — afficherFontaines(liste)
 // 1. Vide <ul id="liste">
 // 2. Un <li> par fontaine : la voie, puis la commune
@@ -63,14 +62,23 @@ afficherFontaines(fontaines);
 //    pour lesquelles test(fontaine) vaut true
 // c. Au clic sur « En service seulement », affiche filtrer(..., estEnService)
 function estEnService(fontaine) {
-
+    return fontaine.dispo === "OUI";
 }
 
 function filtrer(liste, test) {
-
+    const resultat = [];
+    for (let i = 0; i < liste.length; i++) {
+        if (test(liste[i])) {
+            resultat.push(liste[i]);
+        }
+    }
+    return resultat;
 }
-
-
+const btnEnService = document.getElementById("btn-en-service");
+btnEnService.addEventListener("click", () => {
+    const fontainesEnService = filtrer(fontaines.estEnService);
+    afficherFontaines(fontainesEnService);
+});
 
 // TODO 6 — Une fonction fléchée en argument
 // Quand on change l'arrondissement dans le <select>, affiche seulement
