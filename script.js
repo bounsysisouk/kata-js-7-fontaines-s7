@@ -12,7 +12,11 @@
 // d. la latitude de la deuxième fontaine
 // e. le motif d'indisponibilité de la cinquième fontaine
 
-
+console.log(reponse.total_count); // reponse a: 8
+console.log(reponse.results.length); //reponse b: 8
+console.log(reponse.results[0].voie); // reponse c: RUE DE LA ROQUETTE
+console.log(reponse.results[1].geo_point_2d.lat); //reponse d: 48.8547
+console.log(reponse.results[4].motif_ind); // reponse e: Gel
 
 // TODO 2 — extraireFontaines(reponse)
 // Retourne le tableau des fontaines, sans l'enveloppe.
